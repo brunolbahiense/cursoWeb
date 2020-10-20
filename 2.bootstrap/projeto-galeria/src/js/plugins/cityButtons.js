@@ -1,5 +1,7 @@
 import $ from 'jquery'
 
+import { onLoadHtmlSuccess } from '../core/includes'
+
 const duration = 400 //tempo do fadeout
 
 function filterByCity (city){
@@ -20,7 +22,7 @@ function filterByCity (city){
 $.fn.cityButtons = function (){
     const cities = new Set
     $('[wm-city]').each(function (i, e){
-        cities.add($(e).attr('we-city'))
+        cities.add($(e).attr('wm-city'))
     })
     
     const btns = Array.from(cities).map(city => {
@@ -31,7 +33,7 @@ $.fn.cityButtons = function (){
     })
     
     const btnAll = $('<button>')
-        .addClass(['btn', 'btn-info', 'active']).html('todas')
+        .addClass(['btn', 'btn-info', 'active']).html('Todas')
     btnAll.click(e => filterByCity(null))
     
     btns.push(btnAll)
@@ -42,4 +44,6 @@ $.fn.cityButtons = function (){
     return this
 }
 
-$('[wm-city-buttons]').cityButtons()
+onLoadHtmlSuccess(function(){
+    $('[wm-city-buttons]').cityButtons()
+})
