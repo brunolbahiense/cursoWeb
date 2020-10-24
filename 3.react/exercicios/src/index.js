@@ -2,14 +2,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import BomDia from './components/BomDia'
-
-import {BoaTarde, BoaNoite} from './components/Multiplos'
+import Pai from './components/Pai'
 
 
 ReactDOM.render(
     <div>
-        <BoaTarde nome="Bluis" />
-        <BoaNoite nome="Nitão" />
+        <Pai Nome="Bruno Luís" Sobrenome="Bahiense"/>
     </div>
 , document.getElementById('root'))// componente personalizado
